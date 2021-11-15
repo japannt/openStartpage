@@ -1,73 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>openStartpage</title>
 
-		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<head>
+	<title>openStartpage</title>
 
-		<link rel="stylesheet" href="/style.css" />
-	</head>
-	<body>
-		<div class="searchContainer">
-			<div>
-				<h3 class="searchWith">Search with</h3>
-				<div class="engineSelect">
-					<button class="engineName">Google</button>
-					<div class="engineSelectDropdown">
-						<a class="engineEntry">Google</a> <!-- https://google.com/search?q="QUERY" -->
-						<a class="engineEntry">Yandex</a> <!-- https://yandex.com/search/?text="QUERY" -->
-						<a class="engineEntry">Bing</a> <!-- https://www.bing.com/search?q="QUERY" -->
-						<a class="engineEntry">Yahoo</a> <!-- https://search.yahoo.com/search?p="QUERY" -->
-						<a class="engineEntry">Baidu</a> <!-- https://www.baidu.com/s?wd="QUERY" -->
-						<a class="engineEntry">DuckDuckGo</a> <!-- https://duckduckgo.com/?q="QUERY" -->
-					</div>
-					<div class="searchBoxContainer">
-							<input type="search" placeholder="Made by japannt" class="searchBox"></input>
-					</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+	<link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+	<div class="searchContainer">
+		<div>
+			<h3 class="searchWith">Search with</h3>
+			<div class="engineSelect">
+				<button class="engineName">Google</button>
+				<div class="engineSelectDropdown">
+					<a class="engineEntry">Google</a> <!-- https://google.com/search?q="QUERY" -->
+					<a class="engineEntry">Yandex</a> <!-- https://yandex.com/search/?text="QUERY" -->
+					<a class="engineEntry">Bing</a> <!-- https://www.bing.com/search?q="QUERY" -->
+					<a class="engineEntry">Yahoo</a> <!-- https://search.yahoo.com/search?p="QUERY" -->
+					<a class="engineEntry">Baidu</a> <!-- https://www.baidu.com/s?wd="QUERY" -->
+					<a class="engineEntry">DuckDuckGo</a> <!-- https://duckduckgo.com/?q="QUERY" -->
+				</div>
+				<div class="searchBoxContainer">
+					<input type="search" placeholder="Made by japannt" class="searchBox"></input>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<script>
-				let selEngine = "Google"
+	<script>
+		let selEngine = "Google"
 
-				$(".engineSelectDropdown").toggle();
+		$(".engineSelectDropdown").toggle();
 
-				$(".engineName, .engineSelectDropdown").click(function() {
-					$(".engineSelectDropdown").slideToggle( "fast" )
-				});
+		$(".engineName, .engineSelectDropdown").click(function () {
+			$(".engineSelectDropdown").slideToggle("fast")
+		});
 
-				$( ".engineEntry" ).click(function() {
-					selEngine = $(this).text();
-					$(".engineName").text(selEngine);
-					console.log(selEngine);
-				});
+		$(".engineEntry").click(function () {
+			selEngine = $(this).text();
+			$(".engineName").text(selEngine);
+			console.log(selEngine);
+		});
 
-				$(document).on('keypress',function(e) {
-					if(e.which == 13) {
-						switch(selEngine) {
-							case "Google":
-								window.open("https://google.com/search?q=" + $(".searchBox").val());
-								break;
-							case "Yandex":
-								window.open("https://yandex.com/search/?text=" + $(".searchBox").val());
-								break;
-							case "Bing":
-								window.open("https://www.bing.com/search?q=" + $(".searchBox").val());
-								break;
-							case "Yahoo":
-								window.open("https://search.yahoo.com/search?p=" + $(".searchBox").val());
-								break;
-							case "Baidu":
-								window.open("https://www.baidu.com/s?wd=" + $(".searchBox").val());
-								break;
-							case "DuckDuckGo":
-								window.open("https://duckduckgo.com/?q=" + $(".searchBox").val());
-								break;
-						}
-					}
-				});
-		</script>
-	</body>
+		$(document).on('keypress', function (e) {
+			if (e.which == 13) {
+				let query = encodeURIComponent($(".searchBox").val())
+
+				switch (selEngine) {
+					case "Google":
+						window.open("https://google.com/search?q=" + query);
+						break;
+					case "Yandex":
+						window.open("https://yandex.com/search/?text=" + query);
+						break;
+					case "Bing":
+						window.open("https://www.bing.com/search?q=" + query);
+						break;
+					case "Yahoo":
+						window.open("https://search.yahoo.com/search?p=" + query);
+						break;
+					case "Baidu":
+						window.open("https://www.baidu.com/s?wd=" + query);
+						break;
+					case "DuckDuckGo":
+						window.open("https://duckduckgo.com/?q=" + query);
+						break;
+				}
+			}
+		});
+	</script>
+</body>
+
 </html>
