@@ -1,0 +1,95 @@
+@font-face {
+	font-family: 'Product Sans';
+	src: url('/productSans.woff2') format('woff2');
+}
+
+body, h1, h2, h3, h4 {
+	margin: 0px !important;
+	padding: 0px !important;
+	background-color: #121212;
+	color: #ffffffde;
+	font-family: 'Product Sans', Fallback, sans-serif;
+	user-select: none;
+}
+
+.searchWith {
+	font-size: 3.5vw;
+	text-align: center;
+	padding-top: 10vh;
+}
+
+.engineName {
+	border: none;
+	font-family: 'Product Sans', Fallback, sans-serif;
+	color: #ffffffde;
+	background-color: #00000000;
+	font-size: 7.5vw;
+	font-weight: bold;
+	text-align: center;
+	transition: background-color 0.5s, padding 0.5s, border-radius 0.5s;
+}
+
+.engineName:hover {
+	cursor: pointer;
+	padding: 0.25em;
+	border-radius: 1.5vw;
+	font-family: 'Product Sans', Fallback, sans-serif;
+	color: #ffffffde;
+	background-color: #2c2c2c;
+	font-size: 7.5vw;
+}
+
+.engineName:hover .engineSelectDropdown {
+	display: block;
+}
+
+.engineSelect {
+	font-size: 3.5vw;
+	text-align: center;
+	position: relative;
+}
+
+.engineSelectDropdown {
+	z-index: 1;
+	display: absolute;
+}
+
+.engineEntry {
+	padding: .75vh .75vh;
+	width: max-content;
+	transition: font-size 0.5s, background-color 0.5s, border-radius 0.5s;
+}
+
+.engineEntry:hover {
+	border-radius: 1.5vw;
+	background-color: #2c2c2cde;
+	font-size: 5vw;
+}
+
+.searchBox {
+	font-family: 'Product Sans', Fallback, sans-serif;
+	font-size: 1.5vw;
+	border-radius: 1.5vh;
+	color: #ffffffde;
+	position: relative;
+	border: none;
+	background-color: #2c2c2cde;
+	width: 85vw;
+	height: 5vh;
+	text-align: center;
+	border: none;
+}
+
+.searchBoxContainer {
+	height: 4.5vh;
+}
+
+.searchContainer {
+	position: absolute;
+	flex-direction: column;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
